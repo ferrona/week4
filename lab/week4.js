@@ -22,12 +22,29 @@ window.addEventListener(`DOMContentLoaded`, async function() {
 
   // Create a variable for the products data
 
-  // Loop through the products data
+  let productList = json.products
 
+  // Loop through the products data
+  for (let i = 0; i <productList.length; i++) {
+  
     // Create a variable to store each product in memory
-    
+    let productName = productList[i].name
+    let productImage = productList[i].image
+    let productPrice = productList[i].price
+    let productDescription = productList[i].description
+ 
     // Create a variable for the HTML element we're going to add to
+    let productsData = document.querySelector (`.products`)
 
     // Insert HTML into the products element, using the data from each product
+productsData.insertAdjacentHTML (`beforeend`, `
+<div class="p-4 w-full md:w-1/2 lg:w-1/3">
+<div class="border h-full p-4 flex flex-col">
+<h2 class="text-lg font-bold mb-4">${productName}</h2>
+<div class="mb-4"><img src="${productImage}"></div>
+<div class="mb-4 text-gray-900">${productDescription}</div>
+<div class="mt-auto text-purple-500 text-2xl">${productPrice}</div>
 
+`)
+}
 })
